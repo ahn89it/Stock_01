@@ -14,12 +14,6 @@ top_right = bsObj.find("em", {"class":"curPrice up"})
 #Intt=top_right.text
 #int(Intt)
 
-def isNumber(s):
-  try:
-    float(s)
-    return True
-  except ValueError:
-    return False
 
 test = (top_right.text).replace(",","")
 
