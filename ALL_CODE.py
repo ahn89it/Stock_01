@@ -37,13 +37,4 @@ ALL_CODE = KOSPY_CODE + KOSDAQ_CODE
 print(ALL_CODE)
 print(len(ALL_CODE))
 
-# 배열로 저장된 종목 코드 하나를 주소 Code에 대입하여 현재 가격 출력
-Input_Code = ALL_CODE[1]
-url_test = "http://m.finance.daum.net/m/item/main.daum?code=" + Input_Code
-print(url_test)
 
-input_html = requests.get(url_test).text
-input_soup = BeautifulSoup(input_html, "html.parser")
-result = input_soup.find("span", {"class":"price"}) #클래스 네임으로 현재가격 찾기
-result = int(result.text.replace(",", "")) #text str형으로 변환후 , 제거 후 int형으로 변환
-print(result)
