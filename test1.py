@@ -17,4 +17,7 @@ top_right = bsObj.find("em", {"class":"curPrice keep"})
 
 test = (top_right.text).replace(",", "")
 
-print(test)
+print(int(test))
+
+
+# 가격 데이터 (ex:150,000) -> Text -> relplace로 , 제거  -> 숫자로

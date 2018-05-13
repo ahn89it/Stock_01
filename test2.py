@@ -6,5 +6,7 @@ html = requests.get(url).text
 soup = BeautifulSoup(html, "html.parser")
 
 for tag in soup.select('tbody td.idx'):
-    tag.replace("," , "")
-    print(tag.text)
+    #tag.replace(",", "")
+    print(tag.text, type(tag.text))
+
+#tag명을 지정하여 데이터 추출기능
