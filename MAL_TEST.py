@@ -71,3 +71,4 @@ if __name__ == "__main__":
     print("현재가", Now_Price)
     print("5일이동평균값", MAL_Line(5))
     print("20일이동평균값", err_MAL_Line(20))
+

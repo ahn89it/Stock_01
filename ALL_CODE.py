@@ -5,9 +5,9 @@
 import requests
 from bs4 import BeautifulSoup
 import re
-PI = 33
+
 KOSPY_url = "http://finance.daum.net/quote/all.daum?type=S&stype=P"
-KOSDAQ_url = "http://finance.daum.net/quote/all.daum?type=U&stype=Q"
+KOSDAQ_url = "http://finance.daum.net/quote/all.daum?type=S&stype=Q"
 KOSPY_html = requests.get(KOSPY_url).text
 KOSDAQ_html =  requests.get(KOSDAQ_url).text
 
@@ -34,14 +34,30 @@ for tag in KOSDAQ_list:
 
 ALL_CODE = KOSPY_CODE + KOSDAQ_CODE
 
+
+
+#다음 증권에서 종목코드가 6자리가 아닌 종목들 제거
+del_list_index = []
+for i in range(len(ALL_CODE)):
+    if (len(ALL_CODE[i]) != 6):
+        del_list_index.append(i)
+
+index=0
+for i in del_list_index:
+    del ALL_CODE[i-index]
+    index += 1
+
+# 시세 차트가 없는 페이지 종목들 제거
+del ALL_CODE[174]
+del ALL_CODE[334]
+
+
+#MAIN
 if __name__ == "__main__":
     print(KOSPY_CODE)
-    print(len(KOSPY_CODE))
+    print("ppppppppppppppppppppppppp", len(KOSPY_CODE))
 
     print(KOSDAQ_CODE)
-    print(len(KOSDAQ_CODE))
-
+    print("qqqqqqqqqqqqqqqqqqqqqq", len(KOSDAQ_CODE))
     print(ALL_CODE)
-    print(len(ALL_CODE))
-
-
+    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa", len(ALL_CODE))
